@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --color-cream: #fdfbf7;
+    --color-forest: #0d3b2e;
+    --color-forest-light: #165645;
+    --color-forest-dark: #07221b;
+    --color-wheat: #d97706;
+    --color-wheat-light: #f59e0b;
+    --color-wheat-dark: #b45309;
+}
+
+/* Custom Scroll-driven and reveal animations */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.scroll-reveal.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-reveal.delay-100 {
+    transition-delay: 100ms;
+}
+
+.scroll-reveal.delay-200 {
+    transition-delay: 200ms;
+}
+
+.scroll-reveal.delay-300 {
+    transition-delay: 300ms;
+}
+
+.scroll-reveal.delay-500 {
+    transition-delay: 500ms;
+}
+
+/* Smooth glass effect navbar and panels */
+.glass-panel {
+    background: rgba(253, 251, 247, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(13, 59, 46, 0.08);
+}
+
+.dark .glass-panel {
+    background: rgba(7, 34, 27, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Subtly animated wheat float */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+

@@ -1,0 +1,49 @@
+# ──────────────────────────────────────────────
+# .dockerignore — Molino Bio Bio
+# Excluye archivos no necesarios en la imagen de producción
+# para acelerar el tiempo de build y reducir el tamaño.
+# ──────────────────────────────────────────────
+
+# Entorno local / secretos
+.env
+.env.*
+*.log
+
+# Dependencias instaladas localmente (se instalan en el build)
+node_modules/
+vendor/
+
+# Assets de Vite compilados localmente (se recompilan en el build)
+public/build/
+public/hot/
+
+# Archivos de Git y control de versiones
+.git/
+.gitignore
+.gitattributes
+
+# Herramientas de desarrollo IDE y editores
+.vscode/
+.idea/
+.cursor/
+.zed/
+.phpactor.json
+
+# Caches de testing y herramientas de desarrollo
+.phpunit.cache/
+.phpunit.result.cache
+phpunit.xml
+tests/
+
+# Docker (no incluir los archivos de docker local en la imagen)
+docker/
+docker-compose.yml
+docker-compose*.yml
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Documentación
+README.md
+CHANGELOG.md

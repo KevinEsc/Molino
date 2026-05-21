@@ -1,4 +1,4 @@
-// Molino del Sur - Dynamic JavaScript
+// Molino Bio Bio - Dynamic JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     // 1. PRODUCT CATALOG DATA
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dynamic WhatsApp message encoding
         if (whatsappBtn) {
-            let message = `*Hola Molino del Sur!*\nMe gustaría solicitar una cotización por los siguientes productos:\n\n`;
+            let message = `*Hola Molino Bio Bio!*\nMe gustaría solicitar una cotización por los siguientes productos:\n\n`;
             cartKeys.forEach(key => {
                 const product = PRODUCTS[key];
                 const qty = cart[key];
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 message += `🔥 *Descuento Volumen (5%):* -${formatCLP(discount)}\n`;
             }
             message += `⭐ *Total Estimado:* ${formatCLP(total)}\n\n`;
-            message += `_Cotización generada desde el sitio web._`;
+            message += `_Cotización generada desde el sitio web de Molino Bio Bio._`;
 
             const encodedMessage = encodeURIComponent(message);
             // Replace with standard business phone number (fictional placeholder, e.g., 56912345678)

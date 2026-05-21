@@ -1,0 +1,42 @@
+# ─────────────────────────────────────────────────────────────
+# render.yaml — Blueprint de despliegue para Molino Bio Bio
+# Documentación: https://render.com/docs/blueprint-spec
+# ─────────────────────────────────────────────────────────────
+
+services:
+  - type: web
+    name: molino-biobio
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free          # Cambia a "starter" o "standard" para producción real
+    region: oregon      # oregon (US West) | frankfurt (EU) | singapore (Asia)
+    branch: main
+
+    # ── Variables de entorno ──────────────────────────────────
+    # APP_KEY debe configurarse manualmente en el panel de Render
+    # como variable de entorno "secret" (no la pongas aquí en texto plano).
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        # Render inyecta la URL pública automáticamente
+        fromService:
+          type: web
+          name: molino-biobio
+          property: host
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: error
+      - key: SESSION_DRIVER
+        value: cookie
+      - key: CACHE_STORE
+        value: array
+
+    # ── Healthcheck ───────────────────────────────────────────
+    healthCheckPath: /
+
+    # ── Auto-deploy al hacer push a "main" ────────────────────
+    autoDeploy: true
